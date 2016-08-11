@@ -101,8 +101,8 @@
 
                         <!--Card image-->
                         <div class="view overlay hm-white-slight">
-                            <img src="{{ asset('ressources/natation.jpg') }}" class="img-fluid" alt="natation">
-                            <a href="#">
+                            <img src="{{ asset('img/' ~ EpreuveArr[0]['image'] ~ '') }}" class="img-fluid" alt="natation">
+                            <a href="{{ path("rio_ath", { 'idEpreuve': EpreuveArr[0]['id'] }) }}">
                                 <div class="mask"></div>
                             </a>
                         </div>
@@ -111,10 +111,10 @@
                         <!--Card content-->
                         <div class="card-block">
                             <!--Title-->
-                            <h4 class="card-title">Card title</h4>
+                            <h4 class="card-title">{{ EpreuveArr[0]['nom'] }}</h4>
                             <!--Text-->
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn-more"><img src="{{ asset('ressources/mor.png') }}" alt="voir plus"></a>
+                            <a href="{{ path("rio_ath", { 'idEpreuve': EpreuveArr[0]['id'] }) }}" class="btn-more"><img src="{{ asset('ressources/mor.png') }}" alt="voir plus"></a>
                         </div>
                         <!--/.Card content-->
 
@@ -130,8 +130,8 @@
 
                         <!--Card image-->
                         <div class="view overlay hm-white-slight">
-                            <img src="{{ asset('ressources/article_escrime.jpg') }}" class="img-fluid" alt="escrime">
-                            <a href="#">
+                            <img src="{{ asset('img/' ~ EpreuveArr[1]['image'] ~ '') }}" class="img-fluid" alt="escrime">
+                            <a href="{{ path("rio_ath", { 'idEpreuve': EpreuveArr[1]['id'] }) }}">
                                 <div class="mask"></div>
                             </a>
                         </div>
@@ -140,10 +140,10 @@
                         <!--Card content-->
                         <div class="card-block">
                             <!--Title-->
-                            <h4 class="card-title">Card title</h4>
+                            <h4 class="card-title">{{ EpreuveArr[1]['nom'] }}</h4>
                             <!--Text-->
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn-more"><img src="{{ asset('ressources/mor.png') }}" alt="voir plus"></a>
+                            <a href="{{ path("rio_ath", { 'idEpreuve': EpreuveArr[1]['id'] }) }}" class="btn-more"><img src="{{ asset('ressources/mor.png') }}" alt="voir plus"></a>
                         </div>
                         <!--/.Card content-->
 
@@ -159,8 +159,8 @@
 
                         <!--Card image-->
                         <div class="view overlay hm-white-slight">
-                            <img src="{{ asset('ressources/fUJqF-ZX2.jpg') }}" class="img-fluid" alt="ressource">
-                            <a href="#">
+                            <img src="{{ asset('img/' ~ EpreuveArr[2]['image'] ~ '') }}" class="img-fluid" alt="ressource">
+                            <a href="{{ path("rio_ath", { 'idEpreuve': EpreuveArr[2]['id'] }) }}">
                                 <div class="mask"></div>
                             </a>
                         </div>
@@ -169,10 +169,10 @@
                         <!--Card content-->
                         <div class="card-block">
                             <!--Title-->
-                            <h4 class="card-title">Card title</h4>
+                            <h4 class="card-title">{{ EpreuveArr[2]['nom'] }}</h4>
                             <!--Text-->
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn-more"><img src="{{ asset('ressources/mor.png') }}" alt="voir plus"></a>
+                            <a href="{{ path("rio_ath", { 'idEpreuve': EpreuveArr[2]['id'] }) }}" class="btn-more"><img src="{{ asset('ressources/mor.png') }}" alt="voir plus"></a>
                         </div>
                         <!--/.Card content-->
 

@@ -1,0 +1,24 @@
+epreuve_index:
+    path:     /
+    defaults: { _controller: "RioBundle:Epreuve:index" }
+    methods:  GET
+
+epreuve_show:
+    path:     /{id}/show
+    defaults: { _controller: "RioBundle:Epreuve:show" }
+    methods:  GET
+
+epreuve_new:
+    path:     /new
+    defaults: { _controller: "RioBundle:Epreuve:new" }
+    methods:  [GET, POST]
+
+epreuve_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "RioBundle:Epreuve:edit" }
+    methods:  [GET, POST]
+
+epreuve_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "RioBundle:Epreuve:delete" }
+    methods:  DELETE

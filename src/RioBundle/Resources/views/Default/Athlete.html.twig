@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Wild Rio</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ asset ('css/bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- Material Design Bootstrap -->
+    <link href="{{ asset ('css/mdb.min.css')}}" rel="stylesheet">
+
+    <!-- Template styles -->
+    <link href="{{ asset ('css/style2.css') }}" rel="stylesheet">
+
+</head>
+
+<body>
+    <header>
+        <!--Navbar-->
+        <nav class="navbar">
+            <!-- Collapse button-->
+            <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#collapseEx">
+                <i class="fa fa-bars"></i>
+            </button>
+
+            <div class="container">
+
+                <!--Collapse content-->
+                <div class="collapse navbar-toggleable-xs" id="collapseEx">
+                    <!--Navbar Brand-->
+                    <a class="navbar-brand" href="" target="_blank">Wild-Rio</a>
+                    <!--Links-->
+
+                    <!--Search form-->
+                    <button class="btn btn-primary connexion pull-right" data-toggle="modal" data-target="#myModal">Se Connecter</button>
+                </div>
+                <!--/.Collapse content-->
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLabel">Connexion</h4>
+                      </div>
+                      <div class="modal-body">
+                          <div class="form-group">
+                            <label for="usr">Name:</label>
+                            <input type="text" class="form-control" id="usr">
+                          </div>
+                          <div class="form-group">
+                            <label for="pwd">Password:</label>
+                            <input type="password" class="form-control" id="pwd">
+                          </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Se connecter</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+            </div>
+
+        </nav>
+        <!--/.Navbar-->
+
+    </header>
+    <div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<img alt="Bootstrap Image Preview" src="{{ asset('ressources/natation.jpg') }}" class="img-natation">
+			<p>
+				Lorem ipsum dolor sit amet, <strong>consectetur adipiscing elit</strong>. Aliquam eget sapien sapien. Curabitur in metus urna. In hac habitasse platea dictumst. Phasellus eu sem sapien, sed vestibulum velit. Nam purus nibh, lacinia non faucibus et, pharetra in dolor. Sed iaculis posuere diam ut cursus. <em>Morbi commodo sodales nisi id sodales. Proin consectetur, nisi id commodo imperdiet, metus nunc consequat lectus, id bibendum diam velit et dui.</em> Proin massa magna, vulputate nec bibendum nec, posuere nec lacus. <small>Aliquam mi erat, aliquam vel luctus eu, pharetra quis elit. Nulla euismod ultrices massa, et feugiat ipsum consequat eu.</small>
+			</p>
+			<table class="table table-hover table-border">
+				<tbody>
+                    {% for athlete in athletes %}
+					<tr>
+						<td>
+							{{athlete['nom']}}
+						</td>
+						<td class="flex-center">
+                            <form action="{{ path('vote') }}" method="POST" id="response">
+                                <!-- <a href="#"><button type="button" name="button" class="btn btn-success">Votez</button></a> -->
+                                <input type="hidden" name="athvote" id="athvote" value=" {{ athlete['nom'] }}">
+                                <input type="submit" class="btn" id="_submit" name="_submit" value="Votez" />
+                            </form>
+						</td>
+					</tr>
+                    {% endfor %}
+				</tbody>
+			</table>
+			<div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-8">
+                        <progress class="progress progress-danger" value="100" max="100"></progress>
+                    </div>
+                    <div class="col-md-4 flex-center">
+                        <h4>Athlete1</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-8">
+                        <progress class="progress progress-warning" value="70" max="100"></progress>
+                    </div>
+                    <div class="col-md-4 flex-center">
+                        <h4>Athlete1</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-8">
+                        <progress class="progress progress-success" value="40" max="100"></progress>
+                    </div>
+                    <div class="col-md-4 flex-center">
+                        <h4>Athlete1</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-8">
+                        <progress class="progress progress-primary" value="10" max="100"></progress>
+                    </div>
+                    <div class="col-md-4 flex-center">
+                        <h4>Athlete1</h4>
+                    </div>
+                </div>
+            </div>
+		</div>
+	</div>
+</div>
+<!--Footer-->
+<footer class="page-footer center-on-small-only primary-color-dark">
+
+    <!--Footer Links-->
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-4 flex-center">
+                <img src="{{ asset ('ressources/facebook.png') }}" alt="logo-facebook" class="img-circle"/>
+            </div>
+            <div class="col-md-4 flex-center">
+                <img src="{{ asset ('ressources/twitter.png') }}" alt="logo-twitter" class="img-circle"/>
+            </div>
+            <div class="col-md-4 flex-center">
+                <img src="{{ asset ('ressources/googleplus.png') }}" alt="logo-google+" class="img-circle"/>
+            </div>
+
+        </div>
+    </div>
+    <!--/.Footer Links-->
+
+    <hr>
+
+    <!--Copyright-->
+    <div class="footer-copyright">
+        <div class="container-fluid">
+            © 2016 Copyright: <a href=""> Cédric Oloa </a>
+
+        </div>
+    </div>
+    <!--/.Copyright-->
+
+</footer>
+<!--/.Footer-->
+
+    <script src="{{ asset('js/jquery.min.js')}}"></script>
+    <script src="{{ asset('js/bootstrap3.min.js')}}"></script>
+    <script src="{{ asset('js/scripts.js')}}"></script>
+  </body>
+</html>

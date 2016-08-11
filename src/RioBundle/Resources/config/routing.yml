@@ -1,3 +1,19 @@
+rio_epreuve:
+    resource: "@RioBundle/Resources/config/routing/epreuve.yml"
+    prefix:   /epreuve
+
+rio_athlete:
+    resource: "@RioBundle/Resources/config/routing/athlete.yml"
+    prefix:   /athlete
+
 rio_homepage:
     path:     /
     defaults: { _controller: RioBundle:Default:index }
+
+rio_ath:
+    path:     /ath/{idEpreuve}
+    defaults: { _controller: RioBundle:Default:ath }
+
+vote:
+    path:     /vote
+    defaults: { _controller: RioBundle:Default:vote }
