@@ -1,0 +1,55 @@
+/* TEMPLATE STYLES */
+
+
+
+.extra-margins {
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.img-rio {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.partie {
+    background-image: url('../ressources/XVMacca592c-f8fa-11e5-b5a2-3d63f10be366.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.youtube {
+    margin-left: 100px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.text-partie {
+    background-color: rgba(10, 126, 147, 0.53);
+    margin-left: 350px;
+    margin-top: 80px;
+}
+
+
+
+.img-circle {
+    width: 80px;
+}
+
+.cover-rio {
+    background: url(../ressources/photo_jo_rio_2016_14042016.jpg);
+    height: 700px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.titre-epreuve {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.btn-more {
+    margin-left: 80%;
+}

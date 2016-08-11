@@ -1,0 +1,17 @@
+.img-natation {
+    width: 100%;
+}
+
+.table-border {
+    border: 2px solid black;
+}
+
+.progress-bar.active, .progress.active .progress-bar {
+    -webkit-animation: progress-bar-stripes 2s linear infinite;
+    animation: progress-bar-stripes 2s linear infinite;
+    color: blue;
+}
+
+.img-circle {
+    width: 80px;
+}
