@@ -1,1 +1,40 @@
+user_login:
+    path:     login
+    defaults: { _controller: UserBundle:Security:login }
+
+user_login_check:
+    path:     login/check
+    defaults: { _controller: UserBundle:Security:check }
+
+user_register:
+    path:     register
+    defaults: { _controller: UserBundle:Registration:register }
+
+user_confirmed:
+    path:     confirmed
+    defaults: { _controller: UserBundle:Registration:confirmed }
+user_logout:
+    path:     logout
+    defaults: { _controller: UserBundle:Security:logout }
+
+user_espace:
+    path:     espace
+    defaults: { _controller: UserBundle:Espace:espace }
+
+user_espacemodif:
+    path:     espacemodif/{id}
+    defaults: { _controller: UserBundle:Espace:espacemodif }
+
+user_espacemodif_admin:
+    path:     espacemodif/admin
+    defaults: { _controller: UserBundle:Espace:espacemodif_admin }
+
+user_espace_delete:
+    path:     espace/delete/{id}
+    defaults: { _controller: UserBundle:Espace:espacedelete }
+
+user_dashboard:
+    path:     dashboard
+    defaults: { _controller: MeetupBundle:Default:index }
+
 

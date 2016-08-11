@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Wild Rio</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Material Design Bootstrap -->
+    <link href="{{ asset('css/mdb.min.css') }}" rel="stylesheet">
+
+    <!-- Template styles -->
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
+</head>
+
+<body>
+    <main>
+
+        <!--Main layout-->
+        <div class="container-fluid">
+            <!--First row-->
+            <div class="row">
+                <div class="col-md-12">
+                    <!--Featured image -->
+                    <div class="cover-rio">
+                        <!-- Collapse button-->
+                        <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#collapseEx">
+                            <i class="fa fa-bars"></i>
+                        </button>
+
+                        <div class="container">
+
+                            <!--Collapse content-->
+                            <div class="collapse navbar-toggleable-xs" id="collapseEx">
+                                <!--Navbar Brand-->
+                                <a class="navbar-brand" href="" target="_blank">Wild-Rio</a>
+                                <!--Links-->
+
+                                <!--Search form-->
+                                <button class="btn btn-primary connexion pull-right" data-toggle="modal" data-target="#myModal"><i class="fa fa-user" aria-hidden="true"></i> Se Connecter</button>
+                            </div>
+                            <!--/.Collapse content-->
+                            <!-- Modal -->
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                              <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body">
+                                      <div class="connexion">
+                                        <div class="col-md-12 ">
+                                          <div class="col-md-12 ">
+                                            <h3 class=""><b>CONNEXION</b></h3>
+                                          </div>
+                                          <div class="col-md-12 ">
+                                            {% if error %}
+                                                <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                                            {% endif %}
+                                          </div>
+                                            <form action="{{ path("user_login_check") }}" method="post">
+                                                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                                          <div class="col-md-12 loglog ecartt">
+                                            <div class="col-md-6 tilti">
+                                                <label for="username"><span>Pseudo :</span></label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+                                            </div>
+                                          </div>
+                                          <div class"col-md-12">
+                                            <div class="col-md-6">
+                                                <label for="password"><span>Mot de Passe :</span></label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <input type="password" id="password" name="_password" required="required" />
+                                            </div>
+                                          </div>
+                                          <div class="col-md-12">
+                                          </div>
+                                          <div class="col-md-12">
+                                            <div class="col-md-4"></div>
+                                            <div class="col-md-4">
+                                                <button type="submit" class="btn btn-primary" id="_submit" name="_submit" value="Envoyer">Envoyer</button>
+                                            </div>
+                                          </div>
+                                            </form>
+                                        </div>
+                                        <div class="col-md-4"></div>
+                                      </div>
+                                  </div>
+                                  <div class="modal-footer">
+
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                        </div>
+                        <!-- <img src="ressources/photo_jo_rio_2016_14042016.jpg" class="img-responsive img-rio" alt=""> -->
+                        <div class="mask">
+                        </div>
+                    </div>
+                    <br>
+                </div>
+
+
+            </div>
+            <!--/.First row-->
+
+            <hr class="extra-margins">
+
+            <!--Second row-->
+            <div class="row">
+                <h2 class="titre-epreuve">Prochaines épreuves</h2>
+                <!--First columnn-->
+                <div class="col-md-4">
+                    <!--Card-->
+                    <div class="card">
+
+                        <!--Card image-->
+                        <div class="view overlay hm-white-slight">
+                            <img src="{{ asset('ressources/natation.jpg') }}" class="img-fluid" alt="natation">
+                            <a href="#">
+                                <div class="mask"></div>
+                            </a>
+                        </div>
+                        <!--/.Card image-->
+
+                        <!--Card content-->
+                        <div class="card-block">
+                            <!--Title-->
+                            <h4 class="card-title">Card title</h4>
+                            <!--Text-->
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn-more"><img src="{{ asset('ressources/mor.png') }}" alt="voir plus"></a>
+                        </div>
+                        <!--/.Card content-->
+
+                    </div>
+                    <!--/.Card-->
+                </div>
+                <!--First columnn-->
+
+                <!--Second columnn-->
+                <div class="col-md-4">
+                    <!--Card-->
+                    <div class="card">
+
+                        <!--Card image-->
+                        <div class="view overlay hm-white-slight">
+                            <img src="{{ asset('ressources/article_escrime.jpg') }}" class="img-fluid" alt="escrime">
+                            <a href="#">
+                                <div class="mask"></div>
+                            </a>
+                        </div>
+                        <!--/.Card image-->
+
+                        <!--Card content-->
+                        <div class="card-block">
+                            <!--Title-->
+                            <h4 class="card-title">Card title</h4>
+                            <!--Text-->
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn-more"><img src="{{ asset('ressources/mor.png') }}" alt="voir plus"></a>
+                        </div>
+                        <!--/.Card content-->
+
+                    </div>
+                    <!--/.Card-->
+                </div>
+                <!--Second columnn-->
+
+                <!--Third columnn-->
+                <div class="col-md-4">
+                    <!--Card-->
+                    <div class="card">
+
+                        <!--Card image-->
+                        <div class="view overlay hm-white-slight">
+                            <img src="{{ asset('ressources/fUJqF-ZX2.jpg') }}" class="img-fluid" alt="ressource">
+                            <a href="#">
+                                <div class="mask"></div>
+                            </a>
+                        </div>
+                        <!--/.Card image-->
+
+                        <!--Card content-->
+                        <div class="card-block">
+                            <!--Title-->
+                            <h4 class="card-title">Card title</h4>
+                            <!--Text-->
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn-more"><img src="{{ asset('ressources/mor.png') }}" alt="voir plus"></a>
+                        </div>
+                        <!--/.Card content-->
+
+                    </div>
+                    <!--/.Card-->
+                </div>
+                <!--Third columnn-->
+            </div>
+            <!--/.Second row-->
+
+            <div class="col-md-12 partie">
+                <div class="col-md-3">
+                    <iframe width="400" height="300"  src="https://www.youtube.com/embed/CorN8AF2Kds" frameborder="0" allowfullscreen class="youtube"></iframe>
+                </div>
+                <div class="col-md-3 text-partie">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+            </div>
+        </div>
+        <!--/.Main layout-->
+
+    </main>
+
+    <!--Footer-->
+    <footer class="page-footer center-on-small-only primary-color-dark">
+
+        <!--Footer Links-->
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4 flex-center">
+                    <img src="{{ asset('ressources/facebook.png') }}" alt="logo-facebook" class="img-circle"/>
+                </div>
+                <div class="col-md-4 flex-center">
+                    <img src="{{ asset('ressources/twitter.png') }}" alt="logo-twitter" class="img-circle"/>
+                </div>
+                <div class="col-md-4 flex-center">
+                    <img src="{{ asset('ressources/googleplus.png') }}" alt="logo-google+" class="img-circle"/>
+                </div>
+
+            </div>
+        </div>
+        <!--/.Footer Links-->
+
+        <hr>
+
+        <!--Copyright-->
+        <div class="footer-copyright">
+            <div class="container-fluid">
+                © 2016 Copyright: <a href=""> Cédric Oloa </a>
+
+            </div>
+        </div>
+        <!--/.Copyright-->
+
+    </footer>
+    <!--/.Footer-->
+
+
+    <!-- SCRIPTS -->
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="{{ asset('js/jquery-2.2.3.min.js') }}"></script>
+
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="{{ asset('js/tether.min.js') }}"></script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="{{ asset('js/mdb.min.js')}}"></script>
+
+
+</body>
+
+</html>

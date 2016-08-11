@@ -1,0 +1,201 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Bienvenu sur votre espace {% if is_granted('ROLE_ADMIN') %}administrateur {{ app.user.username }}{% else %}utilisateur{% endif %}
+        <small>Panneau de contrôle</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="{{ path('user_accueil') }}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Espace</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <!-- Small boxes (Stat box) -->
+      <div class="">
+        <div class="col-md-3 esp-utilisateur">
+
+          {% if requete.userImage == false %}
+          <p><img src="{{ asset('uploads/datausers/deer.png')}}" class="img-circle photoid"></p>
+          {% else %}
+          <p><img src="{{ asset('uploads/datausers/' ~ requete.userImage ~ '')}}" class="img-circle photoid"></p>
+          {% endif %}
+
+          <p>{{ app.user.email }} 
+          <p>{{ requete.userNom }} {{ requete.userPrenom }}</br>
+          {{ requete.userVille }}</br>
+          {{ requete.userFonction }} 
+          </p>
+          <a href="{{ path('user_espacemodif', {'id': app.user.id }) }}">
+          <button type="button" class="btn btn-warning">Modifier mes informations</button>
+          </a>
+        </div>
+        {% if requete.userImage == false %}
+        <div class="col-md-3 photo_w1"><img src="{{ asset('img/wilder.png')}}"><p><span>Actualise tes infos !!</span></p></div>
+        {% else %}
+        <div class="col-md-3 photo_w1"><img src="{{ asset('img/wilder.png')}}"><p>Tout est OK !!</p></div>
+        {% endif %}
+      </div>
+
+      <!-- Gestion des utilisateurs -->
+      {% if is_granted('ROLE_ADMIN') %}
+      <div class="row">
+        <div class="col-md-12 user_gest">
+          <h3>Gestion des utilisateurs</h3>
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Pseudo</th>
+                    <th>Adresse email</th>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Fonction</th>
+                    <th>Villes</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                    {% for allUser in allUsers %}
+                <tbody>
+                  <tr>
+                    {% if allUser.image == false %}
+                    <td><img src="{{ asset('uploads/datausers/deer.png')}}" class="img-circle photoid"></td>{% else %}
+                    <td><img src="{{ asset('uploads/datausers/' ~ allUser.image ~ '')}}" class="img-circle photoid"></td>
+                    {% endif %}
+                    <td>{{ allUser.pseudo }}</td>
+                    <td>{{ allUser.email }}</td> 
+                    <td>{{ allUser.nom }}</td>
+                    <td>{{ allUser.prenom }}</td>
+                    <td>{{ allUser.fonction }}</td> 
+                    <td>{{ allUser.ville }}</td>
+                    <td><a href="{{ path('user_espacemodif', {'id': allUser.id } ) }}"><img src="{{ asset('./img/edit.png') }}"></a>  <a href="{{ path('user_espace_delete', { 'id': allUser.id }) }}"><img src="{{ asset('./img/delete.png') }}"></a></td>
+                    
+                  </tr>
+                </tbody>   
+                   {% endfor %}           
+            </table> 
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">Créer un nouvel utilisateur</button>
+            
+            <!-- Trigger the modal with a button -->
+            <!-- Modal -->
+            <div id="myModal" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Création d'un nouvel utilisateur</h4>
+                  </div>
+                  <div class="modal-body">
+                    {% block register %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+
+
+<div class="col-md-12 form-register">
+
+  {{ form_start(form, {'method': 'post', 'action': path('user_espace'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+
+  <div class="col-md-7 col-md-offset-3 form-global">
+    <div class="col-md-12 form-title">
+      
+    </div>
+
+    <div class="col-md-12 ">
+        <div class="col-md-12 form-title">
+          Pseudo :
+        </div>
+      <div class="col-md-12 form-title">
+        {{ form_widget(form.username) }}
+        {{ form_errors(form.username) }}
+        </div>
+    </div>
+
+     <div class="col-md-12">
+        <div class="col-md-12 form-title">
+          Adresse E-mail :
+        </div>
+      <div class="col-md-12 form-title">
+        {{ form_widget(form.email) }}
+        {{ form_errors(form.email) }}
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="col-md-12 form-title">
+          Mot de passe :
+        </div>
+      <div class="col-md-12 form-title">
+        {{ form_widget(form.plainPassword.first) }}
+        {{ form_errors(form.plainPassword.first) }}
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <div class="col-md-12 form-title">
+          Confirmation :
+        </div>
+      <div class="col-md-12 form-title">
+        {{ form_widget(form.plainPassword.second) }}
+        {{ form_errors(form.plainPassword.second) }}
+        </div>
+    </div>
+
+    <div class="col-md-12 form_user">
+        <label for="requete.userNom">Nom :</label></br>
+        <input type="text" id="requete.userNom" name="userNom" value=""/>
+    </div>
+
+    <div class="col-md-12 form_user">
+        <label for="requete.userPrenom">Prenom :</label><br>
+        <input type="text" id="requete.userPrenom" name="userPrenom" value=""/>
+    </div>
+
+    <div class="col-md-12 form_user">
+        <label for="requete.userFonction">Fonction :</label></br>
+        <input type="text" id="requete.userFonction" name="userFonction" value=""/>
+    </div>
+
+    <div class="col-md-12 form_user">
+        <label for="requete.userVille">Ville :</label></br>
+        <input type="text" id="requete.userVille" name="userVille" value=""/>
+    </div>
+
+      <div class="col-md-12 form-title">
+          <input class="btn btn-success" type="submit" value="{{ 'registration.submit'|trans }}" />
+      </div>
+  </div>
+  {{ form_end(form) }}
+</div>
+
+{% endblock %}
+
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+        </div>
+      </div>
+{% else %}
+{% endif %}
+
+      <!-- Main row -->
+     
+    </section>
+    <!-- /.content -->
+  </div>
+
+  {% endblock %}
